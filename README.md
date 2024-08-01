@@ -1,1 +1,1 @@
-# some-things
+# some education projects on go
