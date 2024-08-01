@@ -1,1 +1,1 @@
-# some education projects on go
+# There are no accidents.
