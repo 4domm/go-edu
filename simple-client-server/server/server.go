@@ -4,11 +4,10 @@ import (
 	"fmt"
 	"log/slog"
 	"net"
-	"strconv"
 )
 
-func StartServer(port int) {
-	s, err := net.Listen("tcp", ":"+strconv.Itoa(port))
+func StartServer(port string) {
+	s, err := net.Listen("tcp", ":"+port)
 	if err != nil {
 		slog.Info("Listen err:", err)
 	}
@@ -29,4 +28,5 @@ func sendMessage(conn net.Conn, msg string) {
 		slog.Info("Send err:", err)
 		return
 	}
+	conn.Close()
 }

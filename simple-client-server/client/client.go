@@ -4,11 +4,10 @@ import (
 	"fmt"
 	"log/slog"
 	"net"
-	"strconv"
 )
 
-func StartClient(port int) {
-	conn, err := net.Dial("tcp", "localhost:"+strconv.Itoa(port))
+func StartClient(port string) {
+	conn, err := net.Dial("tcp", "localhost:"+port)
 	slog.Info("connected to server")
 	if err != nil {
 		slog.Info("cant connect to server", err)
@@ -21,6 +20,6 @@ func StartClient(port int) {
 	slog.Info("read message")
 	if string(ansFromServer[:size]) == "OK" {
 		fmt.Println(string(ansFromServer[:size]))
-		conn.Close()
 	}
+	conn.Close()
 }

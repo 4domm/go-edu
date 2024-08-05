@@ -6,7 +6,7 @@ import (
 )
 
 type Config struct {
-	Port int `yaml:"port"`
+	Port string `yaml:"port"`
 }
 
 func MustLoadConfig(path string) (*Config, error) {
