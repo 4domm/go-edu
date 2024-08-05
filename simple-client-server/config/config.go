@@ -10,7 +10,7 @@ type Config struct {
 }
 
 func MustLoadConfig(path string) (*Config, error) {
-	data, err := os.ReadFile("config.yaml")
+	data, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
